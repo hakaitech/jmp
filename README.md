@@ -18,7 +18,8 @@ jmp uses a single file @ ~/.jmp/m.jmp that tracs all file points you make. jmp-m
 1. Use the provided script jmp-save-marker to create mark points in files where needed.
 2. Utilize the jmp-marks script to traverse using fzf through marks
 3. by default the script has a hardcoded call to hx
-
+4. assign keybinds to execute these scripts from Helix inside config.toml
+   
 ### Pre-Requisites
 
 1. tmux https://github.com/tmux/tmux/wiki
@@ -31,19 +32,19 @@ jmp uses a single file @ ~/.jmp/m.jmp that tracs all file points you make. jmp-m
 - Creating a Mark Point:
 
     ```bash
-    $ echo "path" | jmp-save-marker
+    echo "path" | jmp-save-marker
     ```
 
 - Listing Mark Points:
 
     ```bash
-    $ jmp-marks
+    jmp-marks
     ```
 
 - Removing a Mark Point:
 
     ```bash
-    $jmp-clear
+    jmp-clear
      
     ```
 ### Contributing
