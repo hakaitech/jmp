@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -m
+# Function to save a list of file markers
+#echo "Enter file markers (separated by spaces) or press Ctrl+D to finish:"
+read -r marker
+
+# Check if markers.txt exists
+if [ -f "$HOME/.jmp/m.jmp" ]; then
+    # Read existing markers from markers.txt
+    existing_markers=$(< $HOME/.jmp/m.jmp)
+    if ! grep -q "$marker" $HOME/.jmp/m.jmp; then
+    echo -e "$marker" >> $HOME/.jmp/m.jmp
+    fi    
+else
+    # If markers.txt does not exist, simply create it with the provided markers
+    echo -e "$marker" > $HOME/.jmp/m.jmp
+fi

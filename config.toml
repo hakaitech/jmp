@@ -1,0 +1,57 @@
+theme = "vhc_transparent"
+
+[editor]
+idle-timeout=0
+color-modes=true
+preview-completion-insert=false
+completion-replace=true
+mouse = false
+shell = ["zsh","-c"]
+completion-trigger-len = 1
+line-number = "relative"
+
+[editor.lsp]
+# Disable automatically popups of signature parameter help
+auto-signature-help = false
+# Show LSP messages in the status line
+display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "*INSERT*"
+mode.select = "SELECT"
+left = ["mode","spacer","version-control", "file-name"]
+right = ["spinner","file-type","separator","workspace-diagnostics","position","total-line-numbers","file-encoding"]
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+"C-s" = ":w"
+"C-r" = ":lsp-restart"
+"C-d" = ["half_page_down", "goto_window_center"]
+"C-u" = ["half_page_up", "goto_window_center"]
+"C-e" = ":run-shell-command tmux split-pane -v jmp-marks"
+"C-a" = ":run-shell-command save-hx"
+"C-c" = ":run-shell-command jmp-clear"
+"C-q" = ":run-shell-command tmux kill-pane"
+
+
+[keys.normal."="]
+"g" = ":run-shell-command tmux popup -E \"/home/linuxbrew/.linuxbrew/bin/lazygit -p $(pwd)\""
+"n" = ":run-shell-command tmux display-popup -E -d $(pwd)"
+"t" = ":run-shell-command display-popup go mod tidy"
+"y" = ":run-shell-command tmux splitw -h -l50% /home/linuxbrew/.linuxbrew/bin/yazi"
+
+[keys.normal.space]
+f = "file_picker_in_current_buffer_directory"
+F = ":pipe-to tmux split-window -v helix-live-grep"
+q = ":quit-all"
+w = ":write-all"
+x = ":buffer-close"
+d = "file_picker"

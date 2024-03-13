@@ -1,0 +1,4 @@
+#!/bin/bash
+set -m
+# Function to clear markers
+echo "" > $HOME/.jmp/m.jmp

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -m
+export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin/
+selected_marker=$(cat $HOME/.jmp/m.jmp| fzf)
+if [ -z "$selected_marker" ]; then
+    exit 1
+fi
+
+# Open the selected file marker in an editor
+tmux select-layout "even-horizontal"
+hx "$selected_marker"

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+tmux send-keys ":sh echo "
+tmux send-keys "C-r"
+tmux send-keys "%"
+tmux send-keys "| jmp-save-marker"
+tmux send-keys -t "$pane" "Enter"
